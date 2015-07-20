@@ -32,7 +32,18 @@ class Dragon
   	end
   end
 
+  def bed
+  	puts "You try to put #{@name} to bed."
+
+  	if @sleepy == true
+  	  puts "#{@name} falls asleep in bed."
+  	  @sleepy = false
+  	else
+  	  puts "#{@name} is not tired.\n #{@name} throws a tantrum!"
+  	end
+  end
+
 end
 
 pet = Dragon.new('Bob')
-pet.feed
+pet.bed
