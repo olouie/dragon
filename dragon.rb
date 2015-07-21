@@ -15,10 +15,11 @@ class Dragon
   	if @hunger < 4
   	  puts "#{@name} still looks kind of hungry."
   	else
-  	  puts "#{@name} looks very full!"
+  	  puts "#{@name} is very full!"
   	end
 
-  	@hunger += 1
+    @hunger += 2
+    time_passing
   end
 
   def walk
@@ -30,20 +31,64 @@ class Dragon
   	else
   	  puts "#{@name} drags you along."
   	end
+
+    if rand(1) == 0
+      @sleepy = true
+    end
+
+    time_passing
   end
 
   def bed
   	puts "You try to put #{@name} to bed."
 
-  	if @sleepy == true
+  	if @sleepy == true && @hunger > 3
   	  puts "#{@name} falls asleep in bed."
   	  @sleepy = false
+
+      if @poop >= 4
+        puts "#{@name} pooped all over the bed while sleeping!"
+        @poop = 0
+      end
+
   	else
-  	  puts "#{@name} is not tired.\n #{@name} throws a tantrum!"
+  	  puts "#{@name} is not tired.\n#{@name} throws a tantrum!"
   	end
+
+    time_passing
+  end
+
+  def time_passing
+    @poop += 1
+    @hunger -= 1
+
+    if @hunger <= 2 && @hunger > 0
+      puts "#{@name} stomach growls loudly."
+    elsif @hunger == 0
+      puts "Out of starvation #{@name} eats you!\nGame Over!"
+      exit
+    end
+
+    if @poop >= 4
+      puts "#{@name} jumps around frantically"
+
+      if rand(1) == 0
+        puts "#{@name} poops all over the place!\n#{@name} looks very relieved."
+        @poop = 0
+      end
+    end
+
+    if @sleepy == true
+      puts "#{@name} looks tired and yawns."
+    end
+
+    puts
   end
 
 end
 
 pet = Dragon.new('Bob')
+pet.feed
+pet.feed
+pet.feed
 pet.bed
