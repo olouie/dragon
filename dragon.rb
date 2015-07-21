@@ -25,14 +25,15 @@ class Dragon
   def walk
   	puts "You take #{@name} out for a walk."
 
-  	if @poop >= 4
+  	if @poop >= 3
   	  puts "#{@name} takes a big poop!"
   	  @poop = 0
   	else
   	  puts "#{@name} drags you along."
   	end
 
-    if rand(1) == 0
+    x = rand(2)
+    if x == 1
       @sleepy = true
     end
 
@@ -72,7 +73,8 @@ class Dragon
     if @poop >= 4
       puts "#{@name} jumps around frantically"
 
-      if rand(1) == 0
+      x = rand(2)
+      if x == 1
         puts "#{@name} poops all over the place!\n#{@name} looks very relieved."
         @poop = 0
       end
@@ -89,6 +91,6 @@ end
 
 pet = Dragon.new('Bob')
 pet.feed
-pet.feed
+pet.walk
 pet.feed
 pet.bed
