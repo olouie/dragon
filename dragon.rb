@@ -52,6 +52,7 @@ class Dragon
         @poop = 0
       end
 
+      puts "\n#{@name} wakes up and is energetic."
   	else
   	  puts "#{@name} is not tired.\n#{@name} throws a tantrum!"
   	end
@@ -92,5 +93,6 @@ end
 pet = Dragon.new('Bob')
 pet.feed
 pet.walk
+pet.feed
 pet.feed
 pet.bed
