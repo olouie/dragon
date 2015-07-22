@@ -43,7 +43,7 @@ class Dragon
   def bed
   	puts "You try to put #{@name} to bed."
 
-  	if @sleepy == true && @hunger > 3
+  	if @sleepy == true && @hunger > 2
   	  puts "#{@name} falls asleep in bed."
   	  @sleepy = false
 
@@ -52,7 +52,7 @@ class Dragon
         @poop = 0
       end
 
-      puts "\n#{@name} wakes up and is energetic."
+      print "\n#{@name} wakes up and is energetic."
   	else
   	  puts "#{@name} is not tired.\n#{@name} throws a tantrum!"
   	end
@@ -71,13 +71,16 @@ class Dragon
       exit
     end
 
-    if @poop >= 4
-      puts "#{@name} jumps around frantically"
-
-      x = rand(2)
-      if x == 1
-        puts "#{@name} poops all over the place!\n#{@name} looks very relieved."
-        @poop = 0
+    if @poop >= 3
+      puts "#{@name} jumps around frantically."
+      
+      if @poop >= 4
+        
+        x = rand(2)
+        if x == 1
+          puts "#{@name} poops all over the place!\n#{@name} looks very relieved."
+          @poop = 0
+        end
       end
     end
 
@@ -88,11 +91,17 @@ class Dragon
     puts
   end
 
+  def play(input)
+    x = input
+    if x.include?('feed')
+      feed
+    elsif x.include?('walk')
+      walk
+    elsif x.include?('bed')
+      bed
+    else
+      puts "You have to enter a command!"
+  end
 end
 
-pet = Dragon.new('Bob')
-pet.feed
-pet.walk
-pet.feed
-pet.feed
-pet.bed
+end
