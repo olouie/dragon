@@ -1,1 +1,2 @@
-# Dragon README
+Simple dragon game.
+Actions: feed, walk, bed.
