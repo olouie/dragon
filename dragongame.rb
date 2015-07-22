@@ -5,7 +5,7 @@ x = $stdin.gets.chomp
 pet = Dragon.new x
 puts
 while x.downcase != 'If you break this loop you\'re stuck!!'
-  print ">"
+  print "> "
   x = $stdin.gets.chomp.downcase
   pet.play(x)
 end
