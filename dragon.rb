@@ -52,7 +52,7 @@ class Dragon
         @poop = 0
       end
 
-      print "\n#{@name} wakes up and is energetic."
+      puts "\n#{@name} wakes up and is energetic."
   	else
   	  puts "#{@name} is not tired.\n#{@name} throws a tantrum!"
   	end
