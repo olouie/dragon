@@ -43,7 +43,7 @@ class Dragon
   def bed
   	puts "You try to put #{@name} to bed."
 
-  	if @sleepy == true && @hunger > 2
+  	if @sleepy && @hunger > 2
   	  puts "#{@name} falls asleep in bed."
   	  @sleepy = false
 
@@ -84,7 +84,7 @@ class Dragon
       end
     end
 
-    if @sleepy == true
+    if @sleepy
       puts "#{@name} looks tired and yawns."
     end
 
